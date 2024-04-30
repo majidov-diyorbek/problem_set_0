@@ -4,11 +4,9 @@
 package turtle;
 
 
-import java.awt.Color;
-// import ch.aplu.turtle.*;
+
 import java.util.ArrayList;
 import java.util.List;
-// import java.util.ArrayList;
 
 public class TurtleSoup {
 
@@ -140,14 +138,6 @@ public class TurtleSoup {
             drawSquare(turtle, 50);
             turtle.turn(10);
         }
-        turtle.color(PenColor.GREEN);
-        turtle.turn(-45);
-        turtle.forward(200);
-        turtle.turn(120);
-        turtle.forward(300);
-        turtle.turn(120);
-        turtle.forward(300);
-        turtle.turn(120);
     }
 
     /**
