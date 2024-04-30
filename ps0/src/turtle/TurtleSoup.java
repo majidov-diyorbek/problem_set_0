@@ -3,6 +3,9 @@
  */
 package turtle;
 
+
+import java.awt.Color;
+// import ch.aplu.turtle.*;
 import java.util.ArrayList;
 import java.util.List;
 // import java.util.ArrayList;
@@ -132,7 +135,19 @@ public class TurtleSoup {
      * @param turtle the turtle context
      */
     public static void drawPersonalArt(Turtle turtle) {
-        throw new RuntimeException("implement me!");
+        turtle.color(PenColor.RED);
+        for (int i = 0; i < 36; i++) {
+            drawSquare(turtle, 50);
+            turtle.turn(10);
+        }
+        turtle.color(PenColor.GREEN);
+        turtle.turn(-45);
+        turtle.forward(200);
+        turtle.turn(120);
+        turtle.forward(300);
+        turtle.turn(120);
+        turtle.forward(300);
+        turtle.turn(120);
     }
 
     /**
@@ -145,10 +160,10 @@ public class TurtleSoup {
     public static void main(String args[]) {
         DrawableTurtle turtle = new DrawableTurtle();
 
-        drawSquare(turtle, 40);
+        drawPersonalArt(turtle);
 
         // draw the window
-        turtle.draw();
+        // turtle.draw();
     }
 
 }
