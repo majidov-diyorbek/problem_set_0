@@ -3,6 +3,7 @@
  */
 package turtle;
 
+import java.util.ArrayList;
 import java.util.List;
 // import java.util.ArrayList;
 
@@ -60,7 +61,10 @@ public class TurtleSoup {
      * @param sideLength length of each side
      */
     public static void drawRegularPolygon(Turtle turtle, int sides, int sideLength) {
-        throw new RuntimeException("implement me!");
+        for(int i = 0; i < sides; i++) {
+            turtle.forward(sideLength);
+            turtle.turn(360/sides);
+        }
     }
 
     /**
@@ -84,7 +88,14 @@ public class TurtleSoup {
      */
     public static double calculateHeadingToPoint(double currentHeading, int currentX, int currentY,
                                                  int targetX, int targetY) {
-        throw new RuntimeException("implement me!");
+        double deltaX = targetX - currentX;
+        double deltaY = targetY - currentY;
+        double angle = Math.toDegrees(Math.atan2(deltaY, deltaX));
+        double heading = angle - currentHeading;
+        if (heading < 0) {
+            heading += 360;
+        }
+        return heading;
     }
 
     /**
@@ -102,7 +113,14 @@ public class TurtleSoup {
      *         otherwise of size (# of points) - 1
      */
     public static List<Double> calculateHeadings(List<Integer> xCoords, List<Integer> yCoords) {
-        throw new RuntimeException("implement me!");
+        List<Double> headings = new ArrayList<>();
+        double currentHeading = 0;
+        for (int i = 1; i < xCoords.size(); i++) {
+            double heading = calculateHeadingToPoint(currentHeading, xCoords.get(i - 1), yCoords.get(i - 1), xCoords.get(i), yCoords.get(i));
+            headings.add(heading);
+            currentHeading += heading;
+        }
+        return headings;
     }
 
     /**
